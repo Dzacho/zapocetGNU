@@ -1,6 +1,6 @@
 AC_PREREQ([2.63])
 AC_INIT([Dzachistics], [0.1], [lisjachy@fjfi.cvut.cz])
-AC_CONFIG_AUX_DIR([build/aux])
+AC_CONFIG_AUX_DIR([build-aux])
 AM_INIT_AUTOMAKE([gnu])
 
 # Checks for programs.
