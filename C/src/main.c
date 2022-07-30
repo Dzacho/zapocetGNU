@@ -17,9 +17,9 @@ int main(int argc, char *argv[])
 	printf("Interval is %d \n", N);
 #endif
 	switch(argv[1]){
-		case 'a' : approx(data);
+		case 'a' : // approx(data);
 			   break;
-		case 'v' : variance(data);
+		case 'v' : // variance(data);
 			   break;
 		default : printf("Statistics method not specified.\n");
 			  break;
