@@ -1,0 +1,16 @@
+Jachym@localhost:~/Dokumenty/Škola/FJFI/Třeťák/GNUprog/zapocetGNU/C> aclocal
+Jachym@localhost:~/Dokumenty/Škola/FJFI/Třeťák/GNUprog/zapocetGNU/C> autoconf
+Jachym@localhost:~/Dokumenty/Škola/FJFI/Třeťák/GNUprog/zapocetGNU/C> automake --add-missing
+configure.ac:3: error: required directory ./build-aux does not exist
+configure.ac:7: error: installing 'build-aux/compile'; error while making link: No such file or directory
+configure.ac:4: error: installing 'build-aux/install-sh'; error while making link: No such file or directory
+configure.ac:4: error: installing 'build-aux/missing'; error while making link: No such file or directory
+configure.ac:9: error: required file 'tests/Makefile.in' not found
+src/Makefile.am:8: warning: AM_CPPFLAGS multiply defined in condition TRUE ...
+src/Makefile.am:3: ... 'AM_CPPFLAGS' previously defined here
+src/Makefile.am: error: installing 'build-aux/depcomp'; error while making link: No such file or directory
+Jachym@localhost:~/Dokumenty/Škola/FJFI/Třeťák/GNUprog/zapocetGNU/C> ./configure
+configure: loading site script /usr/share/site/x86_64-unknown-linux-gnu
+configure: error: cannot find install-sh, install.sh, or shtool in build-aux "."/build-aux
+Jachym@localhost:~/Dokumenty/Škola/FJFI/Třeťák/GNUprog/zapocetGNU/C> make
+make: *** Nezadány žádné cíle a žádné makefily nenalezeny. Konec.
