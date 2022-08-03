@@ -86,7 +86,7 @@ POST_INSTALL = :
 NORMAL_UNINSTALL = :
 PRE_UNINSTALL = :
 POST_UNINSTALL = :
-bin_PROGRAMS = Dzachistics$(EXEEXT)
+bin_PROGRAMS = dzachistics$(EXEEXT)
 subdir = main
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps = $(top_srcdir)/configure.ac
@@ -99,9 +99,9 @@ CONFIG_CLEAN_FILES =
 CONFIG_CLEAN_VPATH_FILES =
 am__installdirs = "$(DESTDIR)$(bindir)"
 PROGRAMS = $(bin_PROGRAMS)
-Dzachistics_SOURCES = Dzachistics.c
-Dzachistics_OBJECTS = Dzachistics.$(OBJEXT)
-Dzachistics_LDADD = $(LDADD)
+am_dzachistics_OBJECTS = main.$(OBJEXT)
+dzachistics_OBJECTS = $(am_dzachistics_OBJECTS)
+dzachistics_LDADD = $(LDADD)
 AM_V_P = $(am__v_P_$(V))
 am__v_P_ = $(am__v_P_$(AM_DEFAULT_VERBOSITY))
 am__v_P_0 = false
@@ -130,8 +130,8 @@ AM_V_CCLD = $(am__v_CCLD_$(V))
 am__v_CCLD_ = $(am__v_CCLD_$(AM_DEFAULT_VERBOSITY))
 am__v_CCLD_0 = @echo "  CCLD    " $@;
 am__v_CCLD_1 = 
-SOURCES = Dzachistics.c
-DIST_SOURCES = Dzachistics.c
+SOURCES = $(dzachistics_SOURCES)
+DIST_SOURCES = $(dzachistics_SOURCES)
 am__can_run_installinfo = \
   case $$AM_UPDATE_INFO_DIR in \
     n|no|NO) false;; \
@@ -246,7 +246,7 @@ target_alias =
 top_build_prefix = ../
 top_builddir = ..
 top_srcdir = ..
-main_SOURCES = main.c
+dzachistics_SOURCES = main.c
 AM_CPPFLAGS = -I $(top_srcdir)/include
 all: all-am
 
@@ -324,9 +324,9 @@ uninstall-binPROGRAMS:
 clean-binPROGRAMS:
 	-test -z "$(bin_PROGRAMS)" || rm -f $(bin_PROGRAMS)
 
-Dzachistics$(EXEEXT): $(Dzachistics_OBJECTS) $(Dzachistics_DEPENDENCIES) $(EXTRA_Dzachistics_DEPENDENCIES) 
-	@rm -f Dzachistics$(EXEEXT)
-	$(AM_V_CCLD)$(LINK) $(Dzachistics_OBJECTS) $(Dzachistics_LDADD) $(LIBS)
+dzachistics$(EXEEXT): $(dzachistics_OBJECTS) $(dzachistics_DEPENDENCIES) $(EXTRA_dzachistics_DEPENDENCIES) 
+	@rm -f dzachistics$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(dzachistics_OBJECTS) $(dzachistics_LDADD) $(LIBS)
 
 mostlyclean-compile:
 	-rm -f *.$(OBJEXT)
@@ -334,7 +334,7 @@ mostlyclean-compile:
 distclean-compile:
 	-rm -f *.tab.c
 
-include ./$(DEPDIR)/Dzachistics.Po
+include ./$(DEPDIR)/main.Po
 
 .c.o:
 	$(AM_V_CC)$(COMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ $<
@@ -556,7 +556,6 @@ uninstall-am: uninstall-binPROGRAMS
 
 .PRECIOUS: Makefile
 
-# AM_LDFLAGS=-L$(top_srcdir)/src/.libs -llstr -lll
 
 # Tell versions [3.59,3.63) of GNU make to not export all variables.
 # Otherwise a system limit (for SysV at least) may be exceeded.

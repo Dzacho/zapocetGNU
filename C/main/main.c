@@ -2,17 +2,11 @@
 #include <stdlib.h>
 #include <string.h>
 
-// #include "charToInt.h"
-
 #define DEBUG
-
-// using namespace std;
-
-// int charToInt(string* argument);
 
 int main(int argc, char *argv[])
 {
-	int N = atoi(argv[0]);
+	int N = atoi(argv[1]);
 #ifdef DEBUG
 	printf("Interval is %d \n", N);
 #endif
