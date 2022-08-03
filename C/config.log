@@ -38,7 +38,7 @@ PATH: /snap/bin
 ## Core tests. ##
 ## ----------- ##
 
-configure:1690: loading site script /usr/share/site/x86_64-unknown-linux-gnu
+configure:1935: loading site script /usr/share/site/x86_64-unknown-linux-gnu
 | #!/bin/sh
 | # Site script for configure. It is resourced via $CONFIG_SITE environment varaible.
 | 
@@ -120,18 +120,383 @@ configure:1690: loading site script /usr/share/site/x86_64-unknown-linux-gnu
 | See \`config.log' for more details" "$LINENO" 5; }
 | 	fi
 | done
-configure:1803: error: cannot find install-sh, install.sh, or shtool in build/aux "."/build/aux
+configure:2076: checking for a BSD-compatible install
+configure:2144: result: /usr/bin/install -c
+configure:2155: checking whether build environment is sane
+configure:2210: result: yes
+configure:2361: checking for a thread-safe mkdir -p
+configure:2400: result: /usr/bin/mkdir -p
+configure:2407: checking for gawk
+configure:2423: found /usr/bin/gawk
+configure:2434: result: gawk
+configure:2445: checking whether make sets $(MAKE)
+configure:2467: result: yes
+configure:2496: checking whether make supports nested variables
+configure:2513: result: yes
+configure:2651: checking for style of include used by make
+configure:2679: result: GNU
+configure:2750: checking for gcc
+configure:2766: found /usr/bin/gcc
+configure:2777: result: gcc
+configure:3006: checking for C compiler version
+configure:3015: gcc --version >&5
+gcc (SUSE Linux) 7.5.0
+Copyright (C) 2017 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+configure:3026: $? = 0
+configure:3015: gcc -v >&5
+Using built-in specs.
+COLLECT_GCC=gcc
+COLLECT_LTO_WRAPPER=/usr/lib64/gcc/x86_64-suse-linux/7/lto-wrapper
+OFFLOAD_TARGET_NAMES=hsa:nvptx-none
+Target: x86_64-suse-linux
+Configured with: ../configure --prefix=/usr --infodir=/usr/share/info --mandir=/usr/share/man --libdir=/usr/lib64 --libexecdir=/usr/lib64 --enable-languages=c,c++,objc,fortran,obj-c++,ada,go --enable-offload-targets=hsa,nvptx-none, --without-cuda-driver --enable-checking=release --disable-werror --with-gxx-include-dir=/usr/include/c++/7 --enable-ssp --disable-libssp --disable-libvtv --disable-libcc1 --disable-plugin --with-bugurl=https://bugs.opensuse.org/ --with-pkgversion='SUSE Linux' --with-slibdir=/lib64 --with-system-zlib --enable-libstdcxx-allocator=new --disable-libstdcxx-pch --enable-version-specific-runtime-libs --with-gcc-major-version-only --enable-linker-build-id --enable-linux-futex --enable-gnu-indirect-function --program-suffix=-7 --without-system-libunwind --enable-multilib --with-arch-32=x86-64 --with-tune=generic --build=x86_64-suse-linux --host=x86_64-suse-linux
+Thread model: posix
+gcc version 7.5.0 (SUSE Linux) 
+configure:3026: $? = 0
+configure:3015: gcc -V >&5
+gcc: error: unrecognized command line option '-V'
+gcc: fatal error: no input files
+compilation terminated.
+configure:3026: $? = 1
+configure:3015: gcc -qversion >&5
+gcc: error: unrecognized command line option '-qversion'; did you mean '--version'?
+gcc: fatal error: no input files
+compilation terminated.
+configure:3026: $? = 1
+configure:3046: checking whether the C compiler works
+configure:3068: gcc    conftest.c  >&5
+configure:3072: $? = 0
+configure:3120: result: yes
+configure:3123: checking for C compiler default output file name
+configure:3125: result: a.out
+configure:3131: checking for suffix of executables
+configure:3138: gcc -o conftest    conftest.c  >&5
+configure:3142: $? = 0
+configure:3164: result: 
+configure:3186: checking whether we are cross compiling
+configure:3194: gcc -o conftest    conftest.c  >&5
+configure:3198: $? = 0
+configure:3205: ./conftest
+configure:3209: $? = 0
+configure:3224: result: no
+configure:3229: checking for suffix of object files
+configure:3251: gcc -c   conftest.c >&5
+configure:3255: $? = 0
+configure:3276: result: o
+configure:3280: checking whether we are using the GNU C compiler
+configure:3299: gcc -c   conftest.c >&5
+configure:3299: $? = 0
+configure:3308: result: yes
+configure:3317: checking whether gcc accepts -g
+configure:3337: gcc -c -g  conftest.c >&5
+configure:3337: $? = 0
+configure:3378: result: yes
+configure:3395: checking for gcc option to accept ISO C89
+configure:3458: gcc  -c -g -O2  conftest.c >&5
+configure:3458: $? = 0
+configure:3471: result: none needed
+configure:3496: checking whether gcc understands -c and -o together
+configure:3518: gcc -c conftest.c -o conftest2.o
+configure:3521: $? = 0
+configure:3518: gcc -c conftest.c -o conftest2.o
+configure:3521: $? = 0
+configure:3533: result: yes
+configure:3552: checking dependency style of gcc
+configure:3663: result: gcc3
+configure:3684: checking how to run the C preprocessor
+configure:3715: gcc -E  conftest.c
+configure:3715: $? = 0
+configure:3729: gcc -E  conftest.c
+conftest.c:11:10: fatal error: ac_nonexistent.h: No such file or directory
+ #include <ac_nonexistent.h>
+          ^~~~~~~~~~~~~~~~~~
+compilation terminated.
+configure:3729: $? = 1
+configure: failed program was:
+| /* confdefs.h */
+| #define PACKAGE_NAME "Dzachistics"
+| #define PACKAGE_TARNAME "dzachistics"
+| #define PACKAGE_VERSION "0.1"
+| #define PACKAGE_STRING "Dzachistics 0.1"
+| #define PACKAGE_BUGREPORT "lisjachy@fjfi.cvut.cz"
+| #define PACKAGE_URL ""
+| #define PACKAGE "dzachistics"
+| #define VERSION "0.1"
+| /* end confdefs.h.  */
+| #include <ac_nonexistent.h>
+configure:3754: result: gcc -E
+configure:3774: gcc -E  conftest.c
+configure:3774: $? = 0
+configure:3788: gcc -E  conftest.c
+conftest.c:11:10: fatal error: ac_nonexistent.h: No such file or directory
+ #include <ac_nonexistent.h>
+          ^~~~~~~~~~~~~~~~~~
+compilation terminated.
+configure:3788: $? = 1
+configure: failed program was:
+| /* confdefs.h */
+| #define PACKAGE_NAME "Dzachistics"
+| #define PACKAGE_TARNAME "dzachistics"
+| #define PACKAGE_VERSION "0.1"
+| #define PACKAGE_STRING "Dzachistics 0.1"
+| #define PACKAGE_BUGREPORT "lisjachy@fjfi.cvut.cz"
+| #define PACKAGE_URL ""
+| #define PACKAGE "dzachistics"
+| #define VERSION "0.1"
+| /* end confdefs.h.  */
+| #include <ac_nonexistent.h>
+configure:3817: checking for grep that handles long lines and -e
+configure:3875: result: /usr/bin/grep
+configure:3880: checking for egrep
+configure:3942: result: /usr/bin/grep -E
+configure:3947: checking for ANSI C header files
+configure:3967: gcc -c -g -O2  conftest.c >&5
+configure:3967: $? = 0
+configure:4040: gcc -o conftest -g -O2   conftest.c  >&5
+configure:4040: $? = 0
+configure:4040: ./conftest
+configure:4040: $? = 0
+configure:4051: result: yes
+configure:4064: checking for sys/types.h
+configure:4064: gcc -c -g -O2  conftest.c >&5
+configure:4064: $? = 0
+configure:4064: result: yes
+configure:4064: checking for sys/stat.h
+configure:4064: gcc -c -g -O2  conftest.c >&5
+configure:4064: $? = 0
+configure:4064: result: yes
+configure:4064: checking for stdlib.h
+configure:4064: gcc -c -g -O2  conftest.c >&5
+configure:4064: $? = 0
+configure:4064: result: yes
+configure:4064: checking for string.h
+configure:4064: gcc -c -g -O2  conftest.c >&5
+configure:4064: $? = 0
+configure:4064: result: yes
+configure:4064: checking for memory.h
+configure:4064: gcc -c -g -O2  conftest.c >&5
+configure:4064: $? = 0
+configure:4064: result: yes
+configure:4064: checking for strings.h
+configure:4064: gcc -c -g -O2  conftest.c >&5
+configure:4064: $? = 0
+configure:4064: result: yes
+configure:4064: checking for inttypes.h
+configure:4064: gcc -c -g -O2  conftest.c >&5
+configure:4064: $? = 0
+configure:4064: result: yes
+configure:4064: checking for stdint.h
+configure:4064: gcc -c -g -O2  conftest.c >&5
+configure:4064: $? = 0
+configure:4064: result: yes
+configure:4064: checking for unistd.h
+configure:4064: gcc -c -g -O2  conftest.c >&5
+configure:4064: $? = 0
+configure:4064: result: yes
+configure:4077: checking minix/config.h usability
+configure:4077: gcc -c -g -O2  conftest.c >&5
+conftest.c:54:10: fatal error: minix/config.h: No such file or directory
+ #include <minix/config.h>
+          ^~~~~~~~~~~~~~~~
+compilation terminated.
+configure:4077: $? = 1
+configure: failed program was:
+| /* confdefs.h */
+| #define PACKAGE_NAME "Dzachistics"
+| #define PACKAGE_TARNAME "dzachistics"
+| #define PACKAGE_VERSION "0.1"
+| #define PACKAGE_STRING "Dzachistics 0.1"
+| #define PACKAGE_BUGREPORT "lisjachy@fjfi.cvut.cz"
+| #define PACKAGE_URL ""
+| #define PACKAGE "dzachistics"
+| #define VERSION "0.1"
+| #define STDC_HEADERS 1
+| #define HAVE_SYS_TYPES_H 1
+| #define HAVE_SYS_STAT_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_MEMORY_H 1
+| #define HAVE_STRINGS_H 1
+| #define HAVE_INTTYPES_H 1
+| #define HAVE_STDINT_H 1
+| #define HAVE_UNISTD_H 1
+| /* end confdefs.h.  */
+| #include <stdio.h>
+| #ifdef HAVE_SYS_TYPES_H
+| # include <sys/types.h>
+| #endif
+| #ifdef HAVE_SYS_STAT_H
+| # include <sys/stat.h>
+| #endif
+| #ifdef STDC_HEADERS
+| # include <stdlib.h>
+| # include <stddef.h>
+| #else
+| # ifdef HAVE_STDLIB_H
+| #  include <stdlib.h>
+| # endif
+| #endif
+| #ifdef HAVE_STRING_H
+| # if !defined STDC_HEADERS && defined HAVE_MEMORY_H
+| #  include <memory.h>
+| # endif
+| # include <string.h>
+| #endif
+| #ifdef HAVE_STRINGS_H
+| # include <strings.h>
+| #endif
+| #ifdef HAVE_INTTYPES_H
+| # include <inttypes.h>
+| #endif
+| #ifdef HAVE_STDINT_H
+| # include <stdint.h>
+| #endif
+| #ifdef HAVE_UNISTD_H
+| # include <unistd.h>
+| #endif
+| #include <minix/config.h>
+configure:4077: result: no
+configure:4077: checking minix/config.h presence
+configure:4077: gcc -E  conftest.c
+conftest.c:21:10: fatal error: minix/config.h: No such file or directory
+ #include <minix/config.h>
+          ^~~~~~~~~~~~~~~~
+compilation terminated.
+configure:4077: $? = 1
+configure: failed program was:
+| /* confdefs.h */
+| #define PACKAGE_NAME "Dzachistics"
+| #define PACKAGE_TARNAME "dzachistics"
+| #define PACKAGE_VERSION "0.1"
+| #define PACKAGE_STRING "Dzachistics 0.1"
+| #define PACKAGE_BUGREPORT "lisjachy@fjfi.cvut.cz"
+| #define PACKAGE_URL ""
+| #define PACKAGE "dzachistics"
+| #define VERSION "0.1"
+| #define STDC_HEADERS 1
+| #define HAVE_SYS_TYPES_H 1
+| #define HAVE_SYS_STAT_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_MEMORY_H 1
+| #define HAVE_STRINGS_H 1
+| #define HAVE_INTTYPES_H 1
+| #define HAVE_STDINT_H 1
+| #define HAVE_UNISTD_H 1
+| /* end confdefs.h.  */
+| #include <minix/config.h>
+configure:4077: result: no
+configure:4077: checking for minix/config.h
+configure:4077: result: no
+configure:4098: checking whether it is safe to define __EXTENSIONS__
+configure:4116: gcc -c -g -O2  conftest.c >&5
+configure:4116: $? = 0
+configure:4123: result: yes
+configure:4144: checking for special C compiler options needed for large files
+configure:4189: result: no
+configure:4195: checking for _FILE_OFFSET_BITS value needed for large files
+configure:4220: gcc -c -g -O2  conftest.c >&5
+configure:4220: $? = 0
+configure:4252: result: no
+configure:4397: checking for gcc
+configure:4424: result: gcc
+configure:4653: checking for C compiler version
+configure:4662: gcc --version >&5
+gcc (SUSE Linux) 7.5.0
+Copyright (C) 2017 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+configure:4673: $? = 0
+configure:4662: gcc -v >&5
+Using built-in specs.
+COLLECT_GCC=gcc
+COLLECT_LTO_WRAPPER=/usr/lib64/gcc/x86_64-suse-linux/7/lto-wrapper
+OFFLOAD_TARGET_NAMES=hsa:nvptx-none
+Target: x86_64-suse-linux
+Configured with: ../configure --prefix=/usr --infodir=/usr/share/info --mandir=/usr/share/man --libdir=/usr/lib64 --libexecdir=/usr/lib64 --enable-languages=c,c++,objc,fortran,obj-c++,ada,go --enable-offload-targets=hsa,nvptx-none, --without-cuda-driver --enable-checking=release --disable-werror --with-gxx-include-dir=/usr/include/c++/7 --enable-ssp --disable-libssp --disable-libvtv --disable-libcc1 --disable-plugin --with-bugurl=https://bugs.opensuse.org/ --with-pkgversion='SUSE Linux' --with-slibdir=/lib64 --with-system-zlib --enable-libstdcxx-allocator=new --disable-libstdcxx-pch --enable-version-specific-runtime-libs --with-gcc-major-version-only --enable-linker-build-id --enable-linux-futex --enable-gnu-indirect-function --program-suffix=-7 --without-system-libunwind --enable-multilib --with-arch-32=x86-64 --with-tune=generic --build=x86_64-suse-linux --host=x86_64-suse-linux
+Thread model: posix
+gcc version 7.5.0 (SUSE Linux) 
+configure:4673: $? = 0
+configure:4662: gcc -V >&5
+gcc: error: unrecognized command line option '-V'
+gcc: fatal error: no input files
+compilation terminated.
+configure:4673: $? = 1
+configure:4662: gcc -qversion >&5
+gcc: error: unrecognized command line option '-qversion'; did you mean '--version'?
+gcc: fatal error: no input files
+compilation terminated.
+configure:4673: $? = 1
+configure:4677: checking whether we are using the GNU C compiler
+configure:4705: result: yes
+configure:4714: checking whether gcc accepts -g
+configure:4775: result: yes
+configure:4792: checking for gcc option to accept ISO C89
+configure:4868: result: none needed
+configure:4893: checking whether gcc understands -c and -o together
+configure:4930: result: yes
+configure:4949: checking dependency style of gcc
+configure:5060: result: gcc3
+configure:5081: checking for stdint.h
+configure:5081: result: yes
+configure:5081: checking stdio.h usability
+configure:5081: gcc -c -g -O2  conftest.c >&5
+configure:5081: $? = 0
+configure:5081: result: yes
+configure:5081: checking stdio.h presence
+configure:5081: gcc -E  conftest.c
+configure:5081: $? = 0
+configure:5081: result: yes
+configure:5081: checking for stdio.h
+configure:5081: result: yes
+configure:5081: checking for stdlib.h
+configure:5081: result: yes
+configure:5081: checking for string.h
+configure:5081: result: yes
+configure:5203: checking that generated files are newer than configure
+configure:5209: result: done
+configure:5236: creating ./config.status
+
+## ---------------------- ##
+## Running config.status. ##
+## ---------------------- ##
+
+This file was extended by Dzachistics config.status 0.1, which was
+generated by GNU Autoconf 2.69.  Invocation command line was
+
+  CONFIG_FILES    = 
+  CONFIG_HEADERS  = 
+  CONFIG_LINKS    = 
+  CONFIG_COMMANDS = 
+  $ ./config.status 
+
+on localhost.localdomain
+
+config.status:864: creating Makefile
+config.status:864: creating include/Makefile
+config.status:864: creating src/Makefile
+config.status:864: creating main/Makefile
+config.status:864: creating config.h
+config.status:1045: config.h is unchanged
+config.status:1093: executing depfiles commands
 
 ## ---------------- ##
 ## Cache variables. ##
 ## ---------------- ##
 
+ac_cv_c_compiler_gnu=yes
 ac_cv_env_CC_set=
 ac_cv_env_CC_value=
 ac_cv_env_CFLAGS_set=
 ac_cv_env_CFLAGS_value=
 ac_cv_env_CPPFLAGS_set=
 ac_cv_env_CPPFLAGS_value=
+ac_cv_env_CPP_set=
+ac_cv_env_CPP_value=
 ac_cv_env_LDFLAGS_set=
 ac_cv_env_LDFLAGS_value=
 ac_cv_env_LIBS_set=
@@ -142,47 +507,79 @@ ac_cv_env_host_alias_set=
 ac_cv_env_host_alias_value=
 ac_cv_env_target_alias_set=
 ac_cv_env_target_alias_value=
+ac_cv_header_inttypes_h=yes
+ac_cv_header_memory_h=yes
+ac_cv_header_minix_config_h=no
+ac_cv_header_stdc=yes
+ac_cv_header_stdint_h=yes
+ac_cv_header_stdio_h=yes
+ac_cv_header_stdlib_h=yes
+ac_cv_header_string_h=yes
+ac_cv_header_strings_h=yes
+ac_cv_header_sys_stat_h=yes
+ac_cv_header_sys_types_h=yes
+ac_cv_header_unistd_h=yes
+ac_cv_objext=o
+ac_cv_path_EGREP='/usr/bin/grep -E'
+ac_cv_path_GREP=/usr/bin/grep
+ac_cv_path_install='/usr/bin/install -c'
+ac_cv_path_mkdir=/usr/bin/mkdir
+ac_cv_prog_AWK=gawk
+ac_cv_prog_CPP='gcc -E'
+ac_cv_prog_ac_ct_CC=gcc
+ac_cv_prog_cc_c89=
+ac_cv_prog_cc_g=yes
+ac_cv_prog_make_make_set=yes
+ac_cv_safe_to_define___extensions__=yes
+ac_cv_sys_file_offset_bits=no
+ac_cv_sys_largefile_CC=no
+am_cv_CC_dependencies_compiler_type=gcc3
+am_cv_make_support_nested_variables=yes
+am_cv_prog_cc_c_o=yes
 
 ## ----------------- ##
 ## Output variables. ##
 ## ----------------- ##
 
-ACLOCAL=''
-AMDEPBACKSLASH=''
-AMDEP_FALSE=''
+ACLOCAL='${SHELL} /home/Jachym/Dokumenty/Škola/FJFI/Třeťák/GNUprog/zapocetGNU/C/build-aux/missing aclocal-1.15'
+AMDEPBACKSLASH='\'
+AMDEP_FALSE='#'
 AMDEP_TRUE=''
-AMTAR=''
-AM_BACKSLASH=''
-AM_DEFAULT_V=''
-AM_DEFAULT_VERBOSITY=''
-AM_V=''
-AUTOCONF=''
-AUTOHEADER=''
-AUTOMAKE=''
-AWK=''
-CC=''
-CCDEPMODE=''
-CFLAGS=''
+AMTAR='$${TAR-tar}'
+AM_BACKSLASH='\'
+AM_DEFAULT_V='$(AM_DEFAULT_VERBOSITY)'
+AM_DEFAULT_VERBOSITY='1'
+AM_V='$(V)'
+AUTOCONF='${SHELL} /home/Jachym/Dokumenty/Škola/FJFI/Třeťák/GNUprog/zapocetGNU/C/build-aux/missing autoconf'
+AUTOHEADER='${SHELL} /home/Jachym/Dokumenty/Škola/FJFI/Třeťák/GNUprog/zapocetGNU/C/build-aux/missing autoheader'
+AUTOMAKE='${SHELL} /home/Jachym/Dokumenty/Škola/FJFI/Třeťák/GNUprog/zapocetGNU/C/build-aux/missing automake-1.15'
+AWK='gawk'
+CC='gcc'
+CCDEPMODE='depmode=gcc3'
+CFLAGS='-g -O2'
+CPP='gcc -E'
 CPPFLAGS=''
-CYGPATH_W=''
-DEFS=''
-DEPDIR=''
+CYGPATH_W='echo'
+DEFS='-DHAVE_CONFIG_H'
+DEPDIR='.deps'
 ECHO_C=''
 ECHO_N='-n'
 ECHO_T=''
+EGREP='/usr/bin/grep -E'
 EXEEXT=''
-INSTALL_DATA=''
-INSTALL_PROGRAM=''
-INSTALL_SCRIPT=''
-INSTALL_STRIP_PROGRAM=''
+GREP='/usr/bin/grep'
+INSTALL_DATA='${INSTALL} -m 644'
+INSTALL_PROGRAM='${INSTALL}'
+INSTALL_SCRIPT='${INSTALL}'
+INSTALL_STRIP_PROGRAM='$(install_sh) -c -s'
 LDFLAGS=''
 LIBOBJS=''
 LIBS=''
 LTLIBOBJS=''
-MAKEINFO=''
-MKDIR_P=''
-OBJEXT=''
-PACKAGE=''
+MAKEINFO='${SHELL} /home/Jachym/Dokumenty/Škola/FJFI/Třeťák/GNUprog/zapocetGNU/C/build-aux/missing makeinfo'
+MKDIR_P='/usr/bin/mkdir -p'
+OBJEXT='o'
+PACKAGE='dzachistics'
 PACKAGE_BUGREPORT='lisjachy@fjfi.cvut.cz'
 PACKAGE_NAME='Dzachistics'
 PACKAGE_STRING='Dzachistics 0.1'
@@ -193,40 +590,40 @@ PATH_SEPARATOR=':'
 SET_MAKE=''
 SHELL='/bin/sh'
 STRIP=''
-VERSION=''
-ac_ct_CC=''
+VERSION='0.1'
+ac_ct_CC='gcc'
 am__EXEEXT_FALSE=''
-am__EXEEXT_TRUE=''
-am__fastdepCC_FALSE=''
+am__EXEEXT_TRUE='#'
+am__fastdepCC_FALSE='#'
 am__fastdepCC_TRUE=''
-am__include=''
+am__include='include'
 am__isrc=''
-am__leading_dot=''
-am__nodep=''
+am__leading_dot='.'
+am__nodep='_no'
 am__quote=''
-am__tar=''
-am__untar=''
+am__tar='$${TAR-tar} chof - "$$tardir"'
+am__untar='$${TAR-tar} xf -'
 bindir='${exec_prefix}/bin'
 build_alias=''
 datadir='${datarootdir}'
 datarootdir='${prefix}/share'
 docdir='${datarootdir}/doc/${PACKAGE_TARNAME}'
 dvidir='${docdir}'
-exec_prefix='NONE'
+exec_prefix='${prefix}'
 host_alias=''
 htmldir='${docdir}'
 includedir='${prefix}/include'
 infodir='${datarootdir}/info'
-install_sh=''
+install_sh='${SHELL} /home/Jachym/Dokumenty/Škola/FJFI/Třeťák/GNUprog/zapocetGNU/C/build-aux/install-sh'
 libdir='${exec_prefix}/lib64'
 libexecdir='${exec_prefix}/lib'
 localedir='${datarootdir}/locale'
 localstatedir='${prefix}/var'
 mandir='${datarootdir}/man'
-mkdir_p=''
+mkdir_p='$(MKDIR_P)'
 oldincludedir='/usr/include'
 pdfdir='${docdir}'
-prefix='NONE'
+prefix='/usr/local'
 program_transform_name='s,x,x,'
 psdir='${docdir}'
 sbindir='${exec_prefix}/sbin'
@@ -245,5 +642,26 @@ target_alias=''
 #define PACKAGE_STRING "Dzachistics 0.1"
 #define PACKAGE_BUGREPORT "lisjachy@fjfi.cvut.cz"
 #define PACKAGE_URL ""
+#define PACKAGE "dzachistics"
+#define VERSION "0.1"
+#define STDC_HEADERS 1
+#define HAVE_SYS_TYPES_H 1
+#define HAVE_SYS_STAT_H 1
+#define HAVE_STDLIB_H 1
+#define HAVE_STRING_H 1
+#define HAVE_MEMORY_H 1
+#define HAVE_STRINGS_H 1
+#define HAVE_INTTYPES_H 1
+#define HAVE_STDINT_H 1
+#define HAVE_UNISTD_H 1
+#define __EXTENSIONS__ 1
+#define _ALL_SOURCE 1
+#define _GNU_SOURCE 1
+#define _POSIX_PTHREAD_SEMANTICS 1
+#define _TANDEM_SOURCE 1
+#define HAVE_STDINT_H 1
+#define HAVE_STDIO_H 1
+#define HAVE_STDLIB_H 1
+#define HAVE_STRING_H 1
 
-configure: exit 1
+configure: exit 0

@@ -16,14 +16,14 @@ int main(int argc, char *argv[])
 #ifdef DEBUG
 	printf("Interval is %d \n", N);
 #endif
-	switch(argv[1]){
+	/*switch(argv[1]){
 		case 'a' : // approx(data);
 			   break;
 		case 'v' : // variance(data);
 			   break;
 		default : printf("Statistics method not specified.\n");
 			  break;
-	}
+	}*/
 
 	return 0;
 }
