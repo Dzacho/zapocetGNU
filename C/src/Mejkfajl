@@ -1,6 +1,6 @@
 bin_PROGRAMS = Dzachistics
 
 Dzachistics_SOURCES= \
-		     charToInt.c
+		     processArguments.c
 # Dzachistics_LDADD = $(DZACHO_LIBS)
 AM_CPPFLAGS=-pedantic -Wall -I $(top_srcdir)/include -include $(top_srcdir)/config.h

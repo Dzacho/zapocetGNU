@@ -1,8 +1,8 @@
 Jachym@localhost:~/Dokumenty/Škola/FJFI/Třeťák/GNUprog/zapocetGNU/C> aclocal
-Jachym@localhost:~/Dokumenty/Škola/FJFI/Třeťák/GNUprog/zapocetGNU/C> autoconf
-Jachym@localhost:~/Dokumenty/Škola/FJFI/Třeťák/GNUprog/zapocetGNU/C> automake --add-missing
-main/Makefile.am:2: warning: variable 'main_SOURCES' is defined but no program or
-main/Makefile.am:2: library has 'main' as canonical name (possible typo)
+Jachym@localhost:~/Dokumenty/Škola/FJFI/Třeťák/GNUprog/zapocetGNU/C> autoheader
+Jachym@localhost:~/Dokumenty/Škola/FJFI/Třeťák/GNUprog/zapocetGNU/C> automake --add-missing --copy --gnu
+Jachym@localhost:~/Dokumenty/Škola/FJFI/Třeťák/GNUprog/zapocetGNU/C> automake --add-missing --copy --gnu
+Jachym@localhost:~/Dokumenty/Škola/FJFI/Třeťák/GNUprog/zapocetGNU/C> autoconf   
 Jachym@localhost:~/Dokumenty/Škola/FJFI/Třeťák/GNUprog/zapocetGNU/C> ./configure
 configure: loading site script /usr/share/site/x86_64-unknown-linux-gnu
 checking for a BSD-compatible install... /usr/bin/install -c
@@ -48,12 +48,6 @@ checking whether gcc accepts -g... (cached) yes
 checking for gcc option to accept ISO C89... (cached) none needed
 checking whether gcc understands -c and -o together... (cached) yes
 checking dependency style of gcc... (cached) gcc3
-checking for stdint.h... (cached) yes
-checking stdio.h usability... yes
-checking stdio.h presence... yes
-checking for stdio.h... yes
-checking for stdlib.h... (cached) yes
-checking for string.h... (cached) yes
 checking that generated files are newer than configure... done
 configure: creating ./config.status
 config.status: creating Makefile
@@ -72,33 +66,15 @@ make[2]: Pro „all“ nebude nic uděláno.
 make[2]: Opouští se adresář „/home/Jachym/Dokumenty/Škola/FJFI/Třeťák/GNUprog/zapocetGNU/C/include“
 Making all in src
 make[2]: Vstupuje se do adresáře „/home/Jachym/Dokumenty/Škola/FJFI/Třeťák/GNUprog/zapocetGNU/C/src“
-make[2]: Pro „all“ nebude nic uděláno.
+gcc -DHAVE_CONFIG_H -I. -I..  -pedantic -Wall -I ../include -include ../config.h   -g -O2 -MT processArguments.o -MD -MP -MF .deps/processArguments.Tpo -c -o processArguments.o processArguments.c
+mv -f .deps/processArguments.Tpo .deps/processArguments.Po
+gcc  -g -O2   -o dzachistics processArguments.o  
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /usr/lib64/gcc/x86_64-suse-linux/7/../../../../lib64/crt1.o: in function `_start':
+/home/abuild/rpmbuild/BUILD/glibc-2.31/csu/../sysdeps/x86_64/start.S:104: undefined reference to `main'
+collect2: error: ld returned 1 exit status
+make[2]: *** [Makefile:329: dzachistics] Chyba 1
 make[2]: Opouští se adresář „/home/Jachym/Dokumenty/Škola/FJFI/Třeťák/GNUprog/zapocetGNU/C/src“
-Making all in main
-make[2]: Vstupuje se do adresáře „/home/Jachym/Dokumenty/Škola/FJFI/Třeťák/GNUprog/zapocetGNU/C/main“
-make[2]: *** Žádné pravidlo jak vyrobit cíl „Dzachistics.c“ potřebný pro „Dzachistics.o“. Konec.
-make[2]: Opouští se adresář „/home/Jachym/Dokumenty/Škola/FJFI/Třeťák/GNUprog/zapocetGNU/C/main“
 make[1]: *** [Makefile:354: all-recursive] Chyba 1
 make[1]: Opouští se adresář „/home/Jachym/Dokumenty/Škola/FJFI/Třeťák/GNUprog/zapocetGNU/C“
 make: *** [Makefile:295: all] Chyba 2
-Jachym@localhost:~/Dokumenty/Škola/FJFI/Třeťák/GNUprog/zapocetGNU/C> make DESTDIR=.. install
-Making install in include
-make[1]: Vstupuje se do adresáře „/home/Jachym/Dokumenty/Škola/FJFI/Třeťák/GNUprog/zapocetGNU/C/include“
-make[2]: Vstupuje se do adresáře „/home/Jachym/Dokumenty/Škola/FJFI/Třeťák/GNUprog/zapocetGNU/C/include“
-make[2]: Pro „install-exec-am“ nebude nic uděláno.
-make[2]: Pro „install-data-am“ nebude nic uděláno.
-make[2]: Opouští se adresář „/home/Jachym/Dokumenty/Škola/FJFI/Třeťák/GNUprog/zapocetGNU/C/include“
-make[1]: Opouští se adresář „/home/Jachym/Dokumenty/Škola/FJFI/Třeťák/GNUprog/zapocetGNU/C/include“
-Making install in src
-make[1]: Vstupuje se do adresáře „/home/Jachym/Dokumenty/Škola/FJFI/Třeťák/GNUprog/zapocetGNU/C/src“
-make[2]: Vstupuje se do adresáře „/home/Jachym/Dokumenty/Škola/FJFI/Třeťák/GNUprog/zapocetGNU/C/src“
-make[2]: Pro „install-exec-am“ nebude nic uděláno.
-make[2]: Pro „install-data-am“ nebude nic uděláno.
-make[2]: Opouští se adresář „/home/Jachym/Dokumenty/Škola/FJFI/Třeťák/GNUprog/zapocetGNU/C/src“
-make[1]: Opouští se adresář „/home/Jachym/Dokumenty/Škola/FJFI/Třeťák/GNUprog/zapocetGNU/C/src“
-Making install in main
-make[1]: Vstupuje se do adresáře „/home/Jachym/Dokumenty/Škola/FJFI/Třeťák/GNUprog/zapocetGNU/C/main“
-make[1]: *** Žádné pravidlo jak vyrobit cíl „Dzachistics.c“ potřebný pro „Dzachistics.o“. Konec.
-make[1]: Opouští se adresář „/home/Jachym/Dokumenty/Škola/FJFI/Třeťák/GNUprog/zapocetGNU/C/main“
-make: *** [Makefile:354: install-recursive] Chyba 1
-Jachym@localhost:~/Dokumenty/Škola/FJFI/Třeťák/GNUprog/zapocetGNU/C>
+Jachym@localhost:~/Dokumenty/Škola/FJFI/Třeťák/GNUprog/zapocetGNU/C> 
