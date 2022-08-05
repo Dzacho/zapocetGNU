@@ -99,7 +99,7 @@ CONFIG_CLEAN_FILES =
 CONFIG_CLEAN_VPATH_FILES =
 am__installdirs = "$(DESTDIR)$(bindir)"
 PROGRAMS = $(bin_PROGRAMS)
-am_dzachistics_OBJECTS = processArguments.$(OBJEXT)
+am_dzachistics_OBJECTS = main.$(OBJEXT)
 dzachistics_OBJECTS = $(am_dzachistics_OBJECTS)
 dzachistics_LDADD = $(LDADD)
 AM_V_P = $(am__v_P_$(V))
@@ -246,8 +246,9 @@ target_alias =
 top_build_prefix = ../
 top_builddir = ..
 top_srcdir = ..
-dzachistics_SOURCES = processArguments.c
-AM_CPPFLAGS = -pedantic -Wall -I $(top_srcdir)/include -include $(top_srcdir)/config.h
+dzachistics_SOURCES = main.c
+#AM_CPPFLAGS=-I $(top_srcdir)/include
+AM_CPPFLAGS = -pedantic -Wall -include $(top_srcdir)/config.h
 all: all-am
 
 .SUFFIXES:
@@ -334,7 +335,7 @@ mostlyclean-compile:
 distclean-compile:
 	-rm -f *.tab.c
 
-include ./$(DEPDIR)/processArguments.Po
+include ./$(DEPDIR)/main.Po
 
 .c.o:
 	$(AM_V_CC)$(COMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ $<

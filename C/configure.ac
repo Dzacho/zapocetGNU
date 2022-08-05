@@ -17,7 +17,5 @@ AC_PROG_INSTALL
 # AC_CHECK_HEADERS([stdint.h stdio.h stdlib.h string.h])
 
 AC_CONFIG_FILES([Makefile
-		 include/Makefile
-		 src/Makefile
-		 main/Makefile])
+		 src/Makefile])
 AC_OUTPUT

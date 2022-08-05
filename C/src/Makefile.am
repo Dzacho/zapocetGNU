@@ -1,3 +1,4 @@
 bin_PROGRAMS=dzachistics
-dzachistics_SOURCES=processArguments.c
-AM_CPPFLAGS=-pedantic -Wall -I $(top_srcdir)/include -include $(top_srcdir)/config.h
+dzachistics_SOURCES=main.c
+#AM_CPPFLAGS=-I $(top_srcdir)/include
+AM_CPPFLAGS=-pedantic -Wall -include $(top_srcdir)/config.h
