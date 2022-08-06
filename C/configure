@@ -5074,9 +5074,6 @@ fi
 
 
 
-# Check for header files.
-# AC_CHECK_HEADERS([stdint.h stdio.h stdlib.h string.h])
-
 ac_config_files="$ac_config_files Makefile src/Makefile"
 
 cat >confcache <<\_ACEOF

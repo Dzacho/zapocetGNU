@@ -13,9 +13,6 @@ AC_CONFIG_HEADERS([config.h])
 AC_PROG_CC
 AC_PROG_INSTALL
 
-# Check for header files.
-# AC_CHECK_HEADERS([stdint.h stdio.h stdlib.h string.h])
-
 AC_CONFIG_FILES([Makefile
 		 src/Makefile])
 AC_OUTPUT

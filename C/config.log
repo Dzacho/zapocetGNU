@@ -441,9 +441,9 @@ configure:4893: checking whether gcc understands -c and -o together
 configure:4930: result: yes
 configure:4949: checking dependency style of gcc
 configure:5060: result: gcc3
-configure:5191: checking that generated files are newer than configure
-configure:5197: result: done
-configure:5224: creating ./config.status
+configure:5188: checking that generated files are newer than configure
+configure:5194: result: done
+configure:5221: creating ./config.status
 
 ## ---------------------- ##
 ## Running config.status. ##

@@ -247,7 +247,6 @@ top_build_prefix = ../
 top_builddir = ..
 top_srcdir = ..
 dzachistics_SOURCES = main.c
-#AM_CPPFLAGS=-I $(top_srcdir)/include
 AM_CPPFLAGS = -pedantic -Wall -include $(top_srcdir)/config.h
 all: all-am
 
