@@ -2,8 +2,6 @@
 #include <getopt.h>
 /* This is here now mainly to declare the NULL pointer */
 #include <stdlib.h>
-
-//#include "processArguments.h"
 	
 	/* This static array defines the arguments we want to use. One for each structure element. The array should be terminated by the all-zeroed element (remember, that NULL pointer is a pointer filled with zeros). */
 	static struct option _LongOptionList[] = {

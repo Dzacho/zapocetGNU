@@ -9,6 +9,8 @@ AC_LANG([C])
 
 AC_CONFIG_HEADERS([config.h])
 
+AC_SEARCH_LIBS([pow], [m])
+
 # Checks for programs.
 AC_PROG_CC
 AC_PROG_INSTALL
