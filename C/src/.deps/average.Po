@@ -1,0 +1,7 @@
+average.o: average.c /usr/include/stdc-predef.h ../config.h average.h
+
+/usr/include/stdc-predef.h:
+
+../config.h:
+
+average.h:

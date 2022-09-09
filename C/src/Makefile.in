@@ -99,7 +99,7 @@ CONFIG_CLEAN_FILES =
 CONFIG_CLEAN_VPATH_FILES =
 am__installdirs = "$(DESTDIR)$(bindir)"
 PROGRAMS = $(bin_PROGRAMS)
-am_dzachistics_OBJECTS = main.$(OBJEXT)
+am_dzachistics_OBJECTS = main.$(OBJEXT) procArgs.$(OBJEXT)
 dzachistics_OBJECTS = $(am_dzachistics_OBJECTS)
 dzachistics_LDADD = $(LDADD)
 AM_V_P = $(am__v_P_@AM_V@)
@@ -246,7 +246,10 @@ target_alias = @target_alias@
 top_build_prefix = @top_build_prefix@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
-dzachistics_SOURCES = main.c
+dzachistics_SOURCES = \
+		     main.c \
+		     procArgs.c
+
 AM_CPPFLAGS = -pedantic -Wall -include $(top_srcdir)/config.h
 all: all-am
 
@@ -335,6 +338,7 @@ distclean-compile:
 	-rm -f *.tab.c
 
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/main.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/procArgs.Po@am__quote@
 
 .c.o:
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(COMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ $<

@@ -1,0 +1,7 @@
+variance.o: variance.c /usr/include/stdc-predef.h ../config.h variance.h
+
+/usr/include/stdc-predef.h:
+
+../config.h:
+
+variance.h:

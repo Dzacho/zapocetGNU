@@ -1,14 +1,16 @@
+#include <limits.h>
+#include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <stdbool.h>
 
-#include "average.c"
-#include "procArgs.c"
-#include "roundoff.c"
-#include "variance.c"
+#include "procArgs.h"
 
 //#define DEBUG
+
+short operation = 2;
+unsigned long N = 1000;
 
 #ifdef DEBUG
 void convertToBinary(unsigned a)
@@ -22,30 +24,105 @@ void convertToBinary(unsigned a)
 }
 #endif
 
+void average()
+{
+	long long sum = 0;
+	int data;
+	unsigned long i = 0;
+	long double res = 0;
+
+	while(fread(&data, 4, 1, stdin))
+        {
+#ifdef DEBUG
+                printf("Read data: %d\n", data);
+                printf("Binary of the number is: ");
+                convertToBinary(data);
+                printf("\n");
+#endif
+                data = (data & 0xFFFF8000) >> 15; //Selecting and shifting needed bits.
+                data = (data > 0x0000FFFF) * (0 - (data ^ 0x0001FFFF) - 1 - data) + data; //Computing the right number stored as 17 bit 2's complement.
+#ifdef DEBUG
+                printf("Right data: %d\n", data);
+                printf("Binary of the number is: ");
+                convertToBinary(data);
+                printf("\n");
+#endif
+		if((0x7FFFFFFFFFFF0000 < sum) || (0x800000000001FFFF > sum)) //testing risk of over- and underflow
+		{
+			res += sum;
+			sum = 0;
+		}
+		sum += data;
+		i += 1;
+                if(i == N)
+                {
+			res += sum;
+                        res = res/N;
+                        printf("%.15Lg\n", res);
+                        i = 0;
+                        sum = 0;
+			res = 0;
+#ifdef DEBUG
+                        return;
+#endif
+                }
+        }
+}
+
+void variance()
+{
+	long long sum = 0;
+	long double bigsum = 0;
+        int data;
+        unsigned long i = 0;
+	long double var = 0;
+
+        while(fread(&data, 4, 1, stdin))
+        {
+#ifdef DEBUG
+                printf("Read data: %d\n", data);
+                printf("Binary of the number is: ");
+                convertToBinary(data);
+                printf("\n");
+#endif
+                data = (data & 0xFFFF8000) >> 15; //Selecting and shifting needed bits.
+                data = (data > 0x0000FFFF) * (0 - (data ^ 0x0001FFFF) - 1 - data) + data; //Computing the right number stored as 17 bit 2's complement.
+#ifdef DEBUG
+                printf("Right data: %d\n", data);
+                printf("Binary of the number is: ");
+                convertToBinary(data);
+                printf("\n");
+#endif
+		if((0x7FFFFFFFFFFF0000 < sum) || (0x800000000001FFFF > sum)) //testing risk of over- and underflow
+                {
+                        bigsum += sum;
+                        sum = 0;
+                }
+                sum += data;
+		var += (N + 1) * data * data - 2 * data * (sum + bigsum);
+                i += 1;
+                if(i == N)
+                {
+			var = var / (N * N);
+                        printf("%.15Lg\n", var);
+                        i = 0;
+                        sum = 0;
+			bigsum = 0;
+			var = 0;
+#ifdef DEBUG
+                        return;
+#endif
+                }
+        }
+}
+
 int main(int argc, char *argv[])
 {
-	if(argc < 3)
+	if(process_arguments(argc, argv))
 	{
-#ifdef DEBUG
-		printf("Too few arguments!\n");
-#endif
-		fprintf(stderr, "Dzachistics error: Too few arguments!\n");
 		return 1;
 	}
-	if(argc > 3)
-	{
-#ifdef DEBUG
-		printf("Too much arguments!\n");
-#endif
-		fprintf(stderr, "Dzachistics error: Too much arguments!\n");
-		return 1;
-	}
-	short operation;
-	unsigned const int N = strtoul(argv[1], NULL, 10);
-	unsigned int i = 0;
-	FILE *fin = NULL;
-	int data[N];
-        float avg;
+
 	if(N == 0)
 	{
 #ifdef DEBUG
@@ -54,69 +131,33 @@ int main(int argc, char *argv[])
 		fprintf(stderr, "Dzachistics error: Can't read interval.\n");
 		return 1;
 	}
+
 #ifdef DEBUG
-	printf("Interval is %d \n", N);
+	printf("Interval is %ld \n", N);
 #endif
-	//data reading
-	fin = fopen("/home/Jachym/Dokumenty/Škola/FJFI/Třeťák/GNUprog/zapocetGNU/data/data1.dat", "rb");
-	if(fin == NULL)
-	{
-		fprintf(stderr, "Dzachistics error: Input not opened.\n");
-		return 1;
-	}
-#ifdef DEBUG
-        printf("Data file opened!\n");
-#endif
-	operation = process_arguments(argc, argv);
+
 	if(!operation || operation > 2)
 	{
-		fprintf(stderr, "Dzachistics error: Statistics method not specified.");
+		fprintf(stderr, "Dzachistics error: Statistics method not specified, operation == %d.\n", operation);
 		return 1;
 	}
-#ifdef DEBUG
+
+	freopen(NULL, "rb", stdin);
+
 	switch(operation)
         {
                 case 1 :
+#ifdef DEBUG
                         printf("Average compute selected.\n");
+#endif
+			average();
                            break;
                 case 2 :
+#ifdef DEBUG
                            printf("Variance compute selected.\n");
+#endif
+			   variance();
                            break;
 	}
-#endif
-
-	while(fread(&data[i], 4, 1, fin))
-	{
-#ifdef DEBUG
-                printf("Read data[%d]: %d\n", i, data[i]);
-		printf("Binary of the number is: ");
-		convertToBinary(data[i]);
-		printf("\n");
-#endif
-		data[i] = (data[i] & 0xFFFF8000) >> 15; //Selecting and shifting needed bits.
-		data[i] = (data[i] > 0x0000FFFF) * (0 - (data[i] ^ 0x0001FFFF) - 1 - data[i]) + data[i]; //Computing the right number stored as 17 bit 2's complement.
-#ifdef DEBUG
-		printf("Right data: %d\n", data[i]);
-		printf("Binary of the number is: ");
-                convertToBinary(data[i]);
-                printf("\n");
-#endif
-		i += 1;
-		if(i == N)
-		{
-			avg = average(data, N);
-			if(operation == 2)
-			{
-				avg = variance(data, avg, N);
-			}
-			printf("%.f\n", Round_off(avg, 3));
-			i = 0;
-			avg = 0;
-#ifdef DEBUG
-			return 0;
-#endif
-		}
-	}
-
 	return 0;
 }
