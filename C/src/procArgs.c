@@ -31,12 +31,12 @@ extern unsigned long N;
 			   (those not beginning with "-" or "--") we should put '-' as the the first letter of the string. */
 			_Ret = getopt_long (argc, argv, "-av", _LongOptionList, NULL);
 #ifdef DEBUG
-                        printf("optind == %d\n", optind);
+                        fprintf(stderr, "optind == %d\n", optind);
 #endif
 			if (_Ret < 0) {
 				/* All command-line options have been parsed. */
 #ifdef DEBUG
-                                printf("All command-line options have been parsed.\n");
+                                fprintf(stderr, "All command-line options have been parsed.\n");
 #endif
 				return 0;
 			}
@@ -44,7 +44,7 @@ extern unsigned long N;
 				case 'a':
 					/* If we get here, it means that the flag "--average" or "-a" was specified, note it somewhere ... */
 #ifdef DEBUG
-                                        printf("Average compute selected, optind == %d\n", optind);
+                                        fprintf(stderr, "Average compute selected, optind == %d\n", optind);
 #endif
 					operation = 1;
 					break;
@@ -52,7 +52,7 @@ extern unsigned long N;
 				case 'v':
 					/* If we get here, it means that the flag "--variance" or "-v" was specified, note it somewhere ... */
 #ifdef DEBUG
-                                        printf("Variance compute selected, optind == %d\n", optind);
+                                        fprintf(stderr, "Variance compute selected, optind == %d\n", optind);
 #endif
 					operation = 2;
 					break;

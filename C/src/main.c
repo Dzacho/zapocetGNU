@@ -12,6 +12,14 @@
 short operation = 2;
 unsigned long N = 1000;
 
+int inline convert(int data)
+{
+    data = data & 0x0001FFFF; //Selecting and shifting needed bits.
+    data += !!(data & 0x00010000) * 0xFFFE0000;
+    //data = (data > 0x0000FFFF) * (0 - (data ^ 0x0001FFFF) - 1 - data) + data; //Computing the right number stored as 17 bit 2's complement.
+    return data;
+}
+
 #ifdef DEBUG
 void convertToBinary(unsigned a)
 {
@@ -20,7 +28,7 @@ void convertToBinary(unsigned a)
         convertToBinary(a / 2);
 
     /* step 2 */
-    printf("%d", a % 2);
+    fprintf(stderr, "%d", a % 2);
 }
 #endif
 
@@ -34,18 +42,17 @@ void average()
 	while(fread(&data, 4, 1, stdin))
         {
 #ifdef DEBUG
-                printf("Read data: %d\n", data);
-                printf("Binary of the number is: ");
+                fprintf(stderr, "Read data: %d\n", data);
+                fprintf(stderr, "Binary of the number is: ");
                 convertToBinary(data);
-                printf("\n");
+                fprintf(stderr, "\n");
 #endif
-                data = (data & 0xFFFF8000) >> 15; //Selecting and shifting needed bits.
-                data = (data > 0x0000FFFF) * (0 - (data ^ 0x0001FFFF) - 1 - data) + data; //Computing the right number stored as 17 bit 2's complement.
+                data = convert(data);
 #ifdef DEBUG
-                printf("Right data: %d\n", data);
-                printf("Binary of the number is: ");
+                fprintf(stderr, "Right data: %d\n", data);
+                fprintf(stderr, "Binary of the number is: ");
                 convertToBinary(data);
-                printf("\n");
+                fprintf(stderr, "\n");
 #endif
 		if((0x7FFFFFFFFFFF0000 < sum) || (0x800000000001FFFF > sum)) //testing risk of over- and underflow
 		{
@@ -53,8 +60,7 @@ void average()
 			sum = 0;
 		}
 		sum += data;
-		i += 1;
-                if(i == N)
+                if(++i == N)
                 {
 			res += sum;
                         res = res/N;
@@ -67,31 +73,35 @@ void average()
 #endif
                 }
         }
+	res += sum;
+        res = res/N;
+        printf("%.15Lg\n", res);
+	return;
 }
 
 void variance()
 {
 	long long sum = 0;
 	long double bigsum = 0;
-        int data;
-        unsigned long i = 0;
-	long double var = 0;
+	int data;
+	unsigned long i = 0;
+	long long var = 0;
+	long double bigvar = 0;
 
         while(fread(&data, 4, 1, stdin))
         {
 #ifdef DEBUG
-                printf("Read data: %d\n", data);
-                printf("Binary of the number is: ");
+                fprintf(stderr, "Read data: %d\n", data);
+                fprintf(stderr, "Binary of the number is: ");
                 convertToBinary(data);
-                printf("\n");
+                fprintf(stderr, "\n");
 #endif
-                data = (data & 0xFFFF8000) >> 15; //Selecting and shifting needed bits.
-                data = (data > 0x0000FFFF) * (0 - (data ^ 0x0001FFFF) - 1 - data) + data; //Computing the right number stored as 17 bit 2's complement.
+                data = convert(data);
 #ifdef DEBUG
-                printf("Right data: %d\n", data);
-                printf("Binary of the number is: ");
+                fprintf(stderr, "Right data: %d\n", data);
+                fprintf(stderr, "Binary of the number is: ");
                 convertToBinary(data);
-                printf("\n");
+                fprintf(stderr, "\n");
 #endif
 		if((0x7FFFFFFFFFFF0000 < sum) || (0x800000000001FFFF > sum)) //testing risk of over- and underflow
                 {
@@ -99,21 +109,35 @@ void variance()
                         sum = 0;
                 }
                 sum += data;
-		var += (N + 1) * data * data - 2 * data * (sum + bigsum);
-                i += 1;
+		//var += (N + 1) * data * data - 2 * data * (sum + bigsum);
+        if(var > LLONG_MAX - data * data)
+        {
+		bigvar += var;
+		var = 0;
+        }
+        var += data * data;
+                i++;
                 if(i == N)
                 {
-			var = var / (N * N);
-                        printf("%.15Lg\n", var);
+			bigsum += sum;
+			bigvar += var;
+			bigvar = (bigvar / N) - bigsum * bigsum / (N * N);
+                        printf("%.15Lg\n", bigvar);
                         i = 0;
                         sum = 0;
 			bigsum = 0;
 			var = 0;
+			bigvar = 0;
 #ifdef DEBUG
                         return;
 #endif
                 }
         }
+	bigsum += sum;
+        bigvar += var;
+        bigvar = (bigvar / N) - bigsum * bigsum / (N * N);
+        printf("%.15Lg\n", bigvar);
+        return;
 }
 
 int main(int argc, char *argv[])
@@ -126,14 +150,14 @@ int main(int argc, char *argv[])
 	if(N == 0)
 	{
 #ifdef DEBUG
-		printf("Can't read interval.\n");
+		fprintf(stderr, "Can't read interval.\n");
 #endif
 		fprintf(stderr, "Dzachistics error: Can't read interval.\n");
 		return 1;
 	}
 
 #ifdef DEBUG
-	printf("Interval is %ld \n", N);
+	fprintf(stderr, "Interval is %ld \n", N);
 #endif
 
 	if(!operation || operation > 2)
@@ -142,22 +166,22 @@ int main(int argc, char *argv[])
 		return 1;
 	}
 
-	freopen(NULL, "rb", stdin);
+	//freopen(NULL, "rb", stdin);
 
 	switch(operation)
         {
                 case 1 :
 #ifdef DEBUG
-                        printf("Average compute selected.\n");
+                        fprintf(stderr, "Average compute selected.\n");
 #endif
 			average();
-                           break;
+                        break;
                 case 2 :
 #ifdef DEBUG
-                           printf("Variance compute selected.\n");
+                        fprintf(stderr, "Variance compute selected.\n");
 #endif
-			   variance();
-                           break;
+			variance();
+                        break;
 	}
 	return 0;
 }
